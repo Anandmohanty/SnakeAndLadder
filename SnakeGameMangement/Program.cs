@@ -2,16 +2,16 @@
 {
     internal class Program
     {
-        
 
 
-             public const int win = 100;
+        public const int win = 100;
         public const int ladder = 1;
         public const int snake = 2;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Snake and Ladder Game");
             int position = 0;
+            int diceCount = 0;
             while (position < win)
             {
                 Random random = new Random();
@@ -38,6 +38,12 @@
                     default:
                         break;
                 }
+                diceCount++;
+                Console.WriteLine("curr postion of player is " + position);
+            }
+            if (position == win)
+            {
+                Console.WriteLine("Player win the game with the total dice roll count is " + diceCount);
             }
         } 
     }
