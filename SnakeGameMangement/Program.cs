@@ -2,40 +2,44 @@
 {
     internal class Program
     {
+        
+
+
+             public const int win = 100;
+        public const int ladder = 1;
+        public const int snake = 2;
         static void Main(string[] args)
         {
-
-
-            Console.WriteLine("Snake & Ladder Simulator");
+            Console.WriteLine("Welcome to Snake and Ladder Game");
             int position = 0;
-            Console.WriteLine("Welcome Player 1");
-            Console.WriteLine("Player 1 is at position : " + position);
-
-            Random random = new Random();
-
-
-            while (position <= 100)
+            while (position < win)
             {
-
-                int temp = position;
-
-                int die = random.Next(1, 7);
-                Console.WriteLine("Player rolls a die and get : {0}", die);
-
-                static void Main(string[] args)
+                Random random = new Random();
+                int diceOutcome = random.Next(1, 7);
+                int checkOptions = random.Next(0, 3);
+                switch (checkOptions)
                 {
-                    int position = 0;
-
+                    case ladder:
+                        if (position + diceOutcome <= 100)
+                        {
+                            position += diceOutcome;
+                        }
+                        break;
+                    case snake:
+                        if (position - diceOutcome < 0)
+                        {
+                            position = 0;
+                        }
+                        else
+                        {
+                            position -= diceOutcome;
+                        }
+                        break;
+                    default:
+                        break;
                 }
-                else if (position > 100)
-                {
-                    position = temp;
-                }
-                Console.WriteLine("Player current position is : " + position);
             }
-        
-                Console.WriteLine("Current Position is : {0}", position);
-            } 
+        } 
     }
     }
 
